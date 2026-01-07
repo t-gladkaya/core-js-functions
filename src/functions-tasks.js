@@ -183,8 +183,16 @@ function retry(func, attempts) {
  * cos(3.141592653589793) ends
  *
  */
-function logger(/* func, logFunc */) {
-  throw new Error('Not implemented');
+function logger(func, logFunc) {
+  return function wrapper(...args) {
+    const argString = args.map((arg) => JSON.stringify(arg)).join(',');
+    const signature = `${func.name}(${argString})`;
+
+    logFunc(`${signature} starts`);
+    const result = func(...args);
+    logFunc(`${signature} ends`);
+    return result;
+  };
 }
 
 /**
@@ -242,7 +250,7 @@ module.exports = {
   getPolynom,
   memoize, // done
   retry, // done
-  logger,
+  logger, // done
   partialUsingArguments, // done
   getIdGeneratorFunction, // done
 };
