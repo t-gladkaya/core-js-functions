@@ -53,8 +53,15 @@ function getFunctionBody(func) {
  *  ]) => [0, 1, 2]
  *
  */
-function getArgumentsCount(/* funcs */) {
-  throw new Error('Not implemented');
+function getArgumentsCount(funcs) {
+  const count = funcs.length;
+  const arr = [];
+
+  for (let i = 0; i < count; i += 1) {
+    arr.push(i);
+  }
+
+  return arr;
 }
 
 /**
@@ -200,7 +207,7 @@ function getIdGeneratorFunction(/* startFrom */) {
 module.exports = {
   getCurrentFunctionName, // done
   getFunctionBody, // done
-  getArgumentsCount,
+  getArgumentsCount, // done
   getPowerFunction,
   getPolynom,
   memoize,
