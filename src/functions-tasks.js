@@ -80,8 +80,10 @@ function getArgumentsCount(funcs) {
  *   power05(16) => 4
  *
  */
-function getPowerFunction(/* exponent */) {
-  throw new Error('Not implemented');
+function getPowerFunction(exponent) {
+  return function power05(x) {
+    return x ** exponent;
+  };
 }
 
 /**
@@ -208,7 +210,7 @@ module.exports = {
   getCurrentFunctionName, // done
   getFunctionBody, // done
   getArgumentsCount, // done
-  getPowerFunction,
+  getPowerFunction, //done
   getPolynom,
   memoize,
   retry,
