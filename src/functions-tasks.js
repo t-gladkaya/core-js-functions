@@ -117,8 +117,17 @@ function getPolynom(/* ...coefficients */) {
  *   ...
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
-function memoize(/* func */) {
-  throw new Error('Not implemented');
+function memoize(func) {
+  let cache;
+  let isComputed = false;
+
+  return function memoizer() {
+    if (!isComputed) {
+      cache = func();
+      isComputed = true;
+    }
+    return cache;
+  };
 }
 
 /**
@@ -212,7 +221,7 @@ module.exports = {
   getArgumentsCount, // done
   getPowerFunction, // done
   getPolynom,
-  memoize,
+  memoize, // done
   retry,
   logger,
   partialUsingArguments,
