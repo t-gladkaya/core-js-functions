@@ -210,7 +210,7 @@ module.exports = {
   getCurrentFunctionName, // done
   getFunctionBody, // done
   getArgumentsCount, // done
-  getPowerFunction, //done
+  getPowerFunction, // done
   getPolynom,
   memoize,
   retry,
